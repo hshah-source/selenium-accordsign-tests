@@ -1,0 +1,5 @@
+com\accordsign\qa\pages\LoginPage.class
+com\accordsign\qa\base\TestBase.class
+com\accordsign\qa\pages\SignUpPage.class
+com\accordsign\qa\pages\HomePage.class
+com\accordsign\qa\util\TestUtil.class
