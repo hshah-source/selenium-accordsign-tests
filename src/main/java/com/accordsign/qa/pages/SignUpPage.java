@@ -89,6 +89,9 @@ public class SignUpPage extends TestBase {
 
 	@FindBy(xpath = "//div[@class='form-group account']//p[@class='default-color']")
 	WebElement SignupText2;
+	
+	
+
 
 	// ==========================================Locators For
 	// Images=======================================================================//
@@ -144,8 +147,7 @@ public class SignUpPage extends TestBase {
 	@FindBy(xpath = "//input[@id='ConfirmPassword']")
 	WebElement ConfirmPassword;
 
-	@FindBy(xpath = "//a[@id='btnSubmit']")
-	WebElement CreatePasswordBtn;
+	
 
 	@FindBy(id = "spanRegionName")
 	WebElement Region;
@@ -155,12 +157,251 @@ public class SignUpPage extends TestBase {
 	
 	@FindBy(xpath = "//div[@class='iti__selected-flag']")
 	WebElement SelectedCountryCodeValue;
+	
+	
+	//======================= Locators For Signup Page Step 2 OTP ==================================//
+	
+	
+	@FindBy(xpath = "//h3[normalize-space()='Check Your Email']")
+	WebElement signupOTPHeadingText;
+	
+	@FindBy(xpath = "//h5[contains(text(),'We sent an OTP to')]")
+	WebElement signupSentOTPText;
+	
+	@FindBy(xpath = "//span[@id='otp-email']")
+	WebElement signupSentOTPEmail;
+	
+	@FindBy(xpath = "//h5[contains(text(),'Check your inbox & follow the instructions to get ')]")
+	WebElement signupOTPInstructionText;
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	WebElement signupOTPValidationToster;
+	// That OTP doesn’t look right. Please try again.
+	// Please enter the OTP.
+	
+	@FindBy(xpath = "//div[@class='toast toast-success']")
+	WebElement signupOTPResendToster;
+	// OTP sent successfully!
+	
+	@FindBy(xpath = "//p[contains(text(),'Didn’t Receive OTP?')]")
+	WebElement signupOTPResendText;
+	
+	@FindBy(xpath = "//a[@id='resendOTPConfirmationMail']")
+	WebElement signupOTPResendLink;
+	
+	@FindBy(xpath = "//div[@class='form-group pt-4']//p[@class='default-color']")
+	WebElement signupOTPLoginLink;
+	
+	@FindBy(xpath = "//input[@id='txtOTP1']")
+	WebElement signupOTPField;
+	
+	
+	
+	//======================= Locators For Signup Page Step 3 Password ==================================//
+
+	@FindBy(xpath = "//h3[normalize-space()='Set a New Password']")
+	WebElement SignupPasswordHeadingText;
+	
+	@FindBy(xpath = "//label[normalize-space()='Password']")
+	WebElement SignupPasswordlabelText;
+	
+	@FindBy(xpath = "//input[@id='Password']")
+	WebElement SignupPasswordPlaceholderText;
+	
+	@FindBy(xpath = "//label[normalize-space()='Confirm Password']")
+	WebElement SignupConfirmPasswordlabelText;
+	
+	@FindBy(xpath = "//input[@id='ConfirmPassword']")
+	WebElement SignupConfirmPasswordPlaceholderText;
+	
+	@FindBy(xpath = "//div[@class='login-right-inner']//p[contains(text(),'Password Strength:')]")
+	WebElement SignupPasswordProgressText;
+	
+	@FindBy(xpath = "//a[@id='btnSubmit']")
+	WebElement CreatePasswordBtn;
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	WebElement ValidationTosterMessage;
+	
+	@FindBy(xpath = "//span[@class='low-upper-case']")
+	WebElement PasswordStrengthText1;
+	
+	@FindBy(xpath = "//span[@class='one-number']")
+	WebElement PasswordStrengthText2;
+	
+	@FindBy(xpath = "//span[@class='one-special-char']")
+	WebElement PasswordStrengthText3;
+	
+	@FindBy(xpath = "//span[@class='eight-character']")
+	WebElement PasswordStrengthText4;
+	
+	
+	public String getPasswordPageTitle() {
+		return driver.getTitle();
+	}
+
+	public String getPasswordHeadingText() {
+		return SignupPasswordHeadingText.getText();
+	}
+	
+	public String getPasswordlabelText() {
+		return SignupPasswordlabelText.getText();
+	}
+	
+	public String getPasswordPlaceholderText() {
+		return SignupPasswordPlaceholderText.getAttribute("placeholder");
+	}
+	
+	public String getConfirmPasswordlabelText() {
+		return SignupConfirmPasswordlabelText.getText();
+	}
+	
+	public String getConfirmPasswordPlaceholderText() {
+		return SignupConfirmPasswordPlaceholderText.getAttribute("placeholder");
+	}
+	
+	public String getPasswordProgressText() {
+		return SignupPasswordProgressText.getText().split("Very")[0].trim();
+	}
+	
+	public String getPasswordStrengthText1() {
+		return PasswordStrengthText1.getText();
+	}
+	
+	public String getPasswordStrengthText2() {
+		return PasswordStrengthText2.getText();
+	}
+	
+	public String getPasswordStrengthText3() {
+		return PasswordStrengthText3.getText();
+	}
+	
+	public String getPasswordStrengthText4() {
+		return PasswordStrengthText4.getText();
+	}
+	
+	
+	public String getPasswordStrengthText1Style() {
+		return PasswordStrengthText1.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText2Style() {
+		return PasswordStrengthText2.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText3Style() {
+		return PasswordStrengthText3.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText4Style() {
+		return PasswordStrengthText4.getCssValue("color");
+	}
+	
+	
+	public String getTosterMessageText() throws InterruptedException {
+		
+		Thread.sleep(6000);
+		CreatePasswordBtn.click();
+		return ValidationTosterMessage.getText();
+	}
+	
+	public void validateEnterPassword(String pwd) {
+		
+		 SignupPasswordPlaceholderText.clear();
+		 SignupPasswordPlaceholderText.sendKeys(pwd);
+	}
+	
+	public void validateConfirmPassword(String cpwd) {
+		
+		
+		SignupConfirmPasswordPlaceholderText.clear();
+		SignupConfirmPasswordPlaceholderText.sendKeys(cpwd);
+	}
+	
+	
+	public String getPasswordProgressStatus() {
+		return SignupPasswordProgressText.getText().split(":", 2)[1].trim();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// ========== OTP Page Actions / Validations ==========
+
+		public String getOTPPageTitle() {
+			return driver.getTitle();
+		}
+	
+		public String getOTPHeadingText() {
+			return signupOTPHeadingText.getText();
+		}
+
+		public String getSentOTPMessage() {
+			return signupSentOTPText.getText();
+		}
+
+		public String getSentOTPEmail() {
+			return signupSentOTPEmail.getText().trim();
+		}
+
+		public String getOTPInstructionText() {
+			return signupOTPInstructionText.getText();
+		}
+
+		public String getOTPValidationMessage() {
+			return signupOTPValidationToster.getText();
+		}
+		
+		public void clickResendLink() {
+			signupOTPResendLink.click();
+		}
+		
+		public String getOTPResendSuccessMessage() {
+			
+			return signupOTPResendToster.getText();
+		}
+
+		public String isResendTextDisplayed() {
+			return signupOTPResendText.getText();
+		}
+
+		public String isLoginLinkDisplayed() {
+			return signupOTPLoginLink.getText();
+		}
+
+		public void clickLoginLink() {
+			signupOTPLoginLink.click();
+		}
+	
+		public void validateSubmitOTPBtn() {
+			VerifyOTPBtn.click();
+		}
+	
+		public void enterInvalidOTP() {
+			signupOTPField.sendKeys("123456");;
+		}
+	
+	
+	
+	
 
 	// =============================================Actions Related to Text &
 	// Label===============================================================//
 	
-	
-	
+
 	
 
 	public String validateSignUpPageTitle() {
@@ -257,6 +498,7 @@ public class SignUpPage extends TestBase {
 		String signuptext2 = SignupText2.getText();
 		return signuptext2;
 	}
+	
 
 	// Actions Related to Image On Login Page.
 
@@ -332,15 +574,7 @@ public class SignUpPage extends TestBase {
 	
 	
 	
-	public void ClickSignUpLink() {
-		
-		
-		//Contact_FirstName.sendKeys("Harsh");
-		//Contact_LastName.sendKeys(lastName);
-		//Contact_CompanyName.sendKeys(companyName);
-		//Contact_EmailID.sendKeys(email);
-		//Contact_PhoneNumber.sendKeys(contactNumber);
-		//Contact_CheckBox.click();
+	public void ClickSignUpBtn() {
 		
 		SignUpBtn.click();
 	}
@@ -358,6 +592,96 @@ public class SignUpPage extends TestBase {
 	    }
 	    return toastTexts;
 	}
+	
+	
+	//============================================OTP page Methods==================================================================================
+	
+	
+	public void validateOTPPageDetails(String firstName, String lastName, String companyName, String email,
+			String contactNumber, String password) {
+		
+		Contact_FirstName.sendKeys(firstName);
+		Contact_LastName.sendKeys(lastName);
+		Contact_CompanyName.sendKeys(companyName);
+		Contact_EmailID.sendKeys(email);
+		Contact_PhoneNumber.sendKeys(contactNumber);
+		Contact_CheckBox.click();
+		SignUpBtn.click();
+		
+		
+	}
+	
+	public void validateSetPasswordPageDetails(String firstName, String lastName, String companyName, String email,
+			String contactNumber, String password) {
+		
+		Contact_FirstName.sendKeys(firstName);
+		Contact_LastName.sendKeys(lastName);
+		Contact_CompanyName.sendKeys(companyName);
+		Contact_EmailID.sendKeys(email);
+		Contact_PhoneNumber.sendKeys(contactNumber);
+		Contact_CheckBox.click();
+		SignUpBtn.click();
+		
+		// Wait for OTP email to arrive
+				try {
+					Thread.sleep(15000); // wait 10 seconds
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				String otp = fetchOtpFromGmail();
+				// System.out.println("OTP: " + otp);
+
+				EnterOTP.sendKeys(otp);
+				VerifyOTPBtn.click();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public HomePage validateUserSignUp(String firstName, String lastName, String companyName, String email,
 			String contactNumber, String password) {
@@ -390,6 +714,33 @@ public class SignUpPage extends TestBase {
 		return new HomePage();
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//====================================================================================================================================================//
+	
+	
+	
 	// Featch OTP Methods
 
 	public String fetchOtpFromGmail() {

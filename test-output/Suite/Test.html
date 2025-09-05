@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>14/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>35/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Aug 26 18:45:15 IST 2025</td>
+<td>Started on:</td><td>Fri Sep 05 10:04:29 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>47 seconds (47528 ms)</td>
+<tr><td>Total time:</td><td>251 seconds (251460 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,29 +76,31 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validatePrivacyPolicyLinkTest()'><b>validatePrivacyPolicyLinkTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td><div><pre>java.lang.AssertionError: Privacy Policy link is not redirecting to any page! expected [true] but found [false]
-	at com.accordsign.qa.testcases.LoginPageTest.validatePrivacyPolicyLinkTest(LoginPageTest.java:152)
+<td title='com.accordsign.qa.testcases.HomePageTest.ValidateHomePageTitleTest()'><b>ValidateHomePageTitleTest</b><br>Test class: com.accordsign.qa.testcases.HomePageTest</td>
+<td><div><pre>java.lang.AssertionError: Home Page Title is not matched expected [Accordsign | Home] but found [Accordsign | Login]
+	at com.accordsign.qa.testcases.HomePageTest.ValidateHomePageTitleTest(HomePageTest.java:37)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace314966354", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace314966354'><pre>java.lang.AssertionError: Privacy Policy link is not redirecting to any page! expected [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1687418752", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1687418752'><pre>java.lang.AssertionError: Home Page Title is not matched expected [Accordsign | Home] but found [Accordsign | Login]
 	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.accordsign.qa.testcases.LoginPageTest.validatePrivacyPolicyLinkTest(LoginPageTest.java:152)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at com.accordsign.qa.testcases.HomePageTest.ValidateHomePageTitleTest(HomePageTest.java:37)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
 	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
@@ -113,32 +115,34 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>5</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>2</td>
+<td>com.accordsign.qa.testcases.HomePageTest@2b4bac49</td></tr>
 <tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateAccordSignTermsLinkTest()'><b>validateAccordSignTermsLinkTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td><div><pre>java.lang.AssertionError: AccordSign Terms link is not redirecting to any page! expected [true] but found [false]
-	at com.accordsign.qa.testcases.LoginPageTest.validateAccordSignTermsLinkTest(LoginPageTest.java:144)
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateValidLoginTest()'><b>validateValidLoginTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td><div><pre>java.lang.AssertionError: Not navigated to Home page! expected [Accordsign | Home] but found [Accordsign | Login]
+	at com.accordsign.qa.testcases.LoginPageTest.validateValidLoginTest(LoginPageTest.java:168)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2078517710", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2078517710'><pre>java.lang.AssertionError: AccordSign Terms link is not redirecting to any page! expected [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1261095698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1261095698'><pre>java.lang.AssertionError: Not navigated to Home page! expected [Accordsign | Home] but found [Accordsign | Login]
 	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.accordsign.qa.testcases.LoginPageTest.validateAccordSignTermsLinkTest(LoginPageTest.java:144)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at com.accordsign.qa.testcases.LoginPageTest.validateValidLoginTest(LoginPageTest.java:168)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
 	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
 	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
@@ -153,8 +157,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>5</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>2</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -165,75 +169,180 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateEmailLabelTest()'><b>validateEmailLabelTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td title='com.accordsign.qa.testcases.SignUpTest.validatePhoneNumberPlaceHolderTextTest()'><b>validatePhoneNumberPlaceHolderTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateLoginPageTitleTest()'><b>validateLoginPageTitleTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordPlaceHolderTest()'><b>validatePasswordPlaceHolderTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateSeedDataLogoisDisplayed()'><b>validateSeedDataLogoisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateSignUpText1Test()'><b>validateSignUpText1Test</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateAccordSignLogoisDisplayed()'><b>validateAccordSignLogoisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateCopyRightisDisplayed()'><b>validateCopyRightisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
-<tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validateLoginBtnTextTest()'><b>validateLoginBtnTextTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
-<td></td>
-<td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
 <tr>
 <td title='com.accordsign.qa.testcases.LoginPageTest.validateDigitalSignatureLogoisDisplayed()'><b>validateDigitalSignatureLogoisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
 <tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordLabelTest()'><b>validatePasswordLabelTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateLoginPageTitleTest()'><b>validateLoginPageTitleTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
 <tr>
-<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordMaskingTest()'><b>validatePasswordMaskingTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateCheckBoxTextTest()'><b>validateCheckBoxTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateCompanyNameLabelTest()'><b>validateCompanyNameLabelTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
 <tr>
 <td title='com.accordsign.qa.testcases.LoginPageTest.validateEmailPlaceHolderTest()'><b>validateEmailPlaceHolderTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateSeedDataLogoisDisplayed()'><b>validateSeedDataLogoisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateLastNameLabelTest()'><b>validateLastNameLabelTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateUserSignUpTest()'><b>validateUserSignUpTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>23</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateLoginBtnTextTest()'><b>validateLoginBtnTextTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateAccordSignLogoisDisplayed()'><b>validateAccordSignLogoisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupOtpPageAllElement()'><b>validateSignupOtpPageAllElement</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>10</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateCompanyNamePlaceHolderTextTest()'><b>validateCompanyNamePlaceHolderTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupText2Test()'><b>validateSignupText2Test</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateFirstNameLabelTest()'><b>validateFirstNameLabelTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateLastNamePlaceHolderTextTest()'><b>validateLastNamePlaceHolderTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignUpPageHeadingTest()'><b>validateSignUpPageHeadingTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateFirstNamePlaceHolderTextTest()'><b>validateFirstNamePlaceHolderTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupBtnTextTest()'><b>validateSignupBtnTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordMaskingTest()'><b>validatePasswordMaskingTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateWorkEmailPlaceHolderTextTest()'><b>validateWorkEmailPlaceHolderTextTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
 <tr>
 <td title='com.accordsign.qa.testcases.LoginPageTest.validateLoginPageHeadingTest()'><b>validateLoginPageHeadingTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordLabelTest()'><b>validatePasswordLabelTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateWorkEmailLabelTest()'><b>validateWorkEmailLabelTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupPasswordPageAllElement()'><b>validateSignupPasswordPageAllElement</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>86</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validatePhoneNumberLabelTest()'><b>validatePhoneNumberLabelTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateCountryCodeDropDownValue()'><b>validateCountryCodeDropDownValue</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>4</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupPageTitleTest()'><b>validateSignupPageTitleTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateCopyRightisDisplayed()'><b>validateCopyRightisDisplayed</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateSignUpText1Test()'><b>validateSignUpText1Test</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignupText1Test()'><b>validateSignupText1Test</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.SignUpTest.validateSignUpValidationMessageTest()'><b>validateSignUpValidationMessageTest</b><br>Test class: com.accordsign.qa.testcases.SignUpTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.SignUpTest@1757cd72</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validatePasswordPlaceHolderTest()'><b>validatePasswordPlaceHolderTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
 <tr>
 <td title='com.accordsign.qa.testcases.LoginPageTest.validateSignUpText2Test()'><b>validateSignUpText2Test</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
 <td></td>
 <td>0</td>
-<td>com.accordsign.qa.testcases.LoginPageTest@23348b5d</td></tr>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
+<tr>
+<td title='com.accordsign.qa.testcases.LoginPageTest.validateEmailLabelTest()'><b>validateEmailLabelTest</b><br>Test class: com.accordsign.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.accordsign.qa.testcases.LoginPageTest@3f56875e</td></tr>
 </table><p>
 </body>
 </html>

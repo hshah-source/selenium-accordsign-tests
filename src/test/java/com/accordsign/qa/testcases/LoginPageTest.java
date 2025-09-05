@@ -1,9 +1,13 @@
 package com.accordsign.qa.testcases;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.accordsign.qa.base.TestBase;
 import com.accordsign.qa.pages.HomePage;
@@ -135,23 +139,69 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	// TestCases Related Functionality
+	// TestCases Functionality
 
-//	@Test(priority = 15)
-//	public void validateAccordSignTermsLinkTest() {
-//
-//		boolean isRedirected = loginpage.validateaccordSignTermsLink();
-//		Assert.assertTrue(isRedirected, "AccordSign Terms link is not redirecting to any page!");
-//
-//	}
+	@Test(priority = 15)
+	public void validateAccordSignTermsLinkTest() {
 
-//	@Test(priority = 16)
-//	public void validatePrivacyPolicyLinkTest() {
-//
-//		boolean isRedirected = loginpage.validatePrivacyPolicyLink();
-//		Assert.assertTrue(isRedirected, "Privacy Policy link is not redirecting to any page!");
-//
-//	}
+		boolean isRedirected = loginpage.validateaccordSignTermsLink();
+		Assert.assertTrue(isRedirected, "AccordSign Terms link is not redirecting to any page!");
+
+	}
+
+	@Test(priority = 16)
+	public void validatePrivacyPolicyLinkTest() {
+
+		boolean isRedirected = loginpage.validatePrivacyPolicyLink();
+		Assert.assertTrue(isRedirected, "Privacy Policy link is not redirecting to any page!");
+
+	}
+	
+	
+	
+	@Test(priority = 17)
+	public void validateSignUpValidationMessageTest() {
+        // Click the SignUp button without filling details
+		loginpage.validateLoginBtn();
+    	
+        // Get all toast messages
+        List<String> actualToasts = loginpage.captureToastMessages();
+
+        // Define expected messages
+        List<String> expectedToasts = Arrays.asList(
+            "Password is required.",
+            "Email address is required."
+            
+        );
+        Assert.assertTrue(actualToasts.containsAll(expectedToasts) &&
+                          expectedToasts.containsAll(actualToasts),
+                "Toast messages did not match!");
+        
+        
+        
+    }
+	
+	@Test(priority = 18)
+	public void validateSignUpValidationMessageTest2() {
+	
+	 loginpage.validateEmailTextBox("hshah@perigeon.abc");
+     loginpage.validatePasswordTextBox("Harsh@123");
+     
+     loginpage.validateLoginBtn();
+     
+  // Get all toast messages
+     List<String> actualToasts2 = loginpage.captureToastMessages();
+
+     // Define expected messages
+     List<String> expectedToasts2 = Arrays.asList(
+         "We couldn’t find an account with that email ID."
+         
+     );
+     Assert.assertTrue(actualToasts2.containsAll(expectedToasts2) &&
+                       expectedToasts2.containsAll(actualToasts2),
+             "Toast messages did not match!");
+	
+	}
 
 
 	@Test(priority = 17)
@@ -161,30 +211,105 @@ public class LoginPageTest extends TestBase {
 
 	}
 	
-//	@Test(priority=18)
-//	public void validateValidLoginTest() throws InterruptedException {
-//
-//		homepage = loginpage.validateValidLogin(prop.getProperty("username"), prop.getProperty("password"));
-//		Assert.assertEquals(homepage.validateHomePageTitle(),"Accordsign | Home Page","Not navigated to Home page!");
-//
-//	}
+
 
 
 	// =================================================Create New Test Class For
 	// ForgotPassword
 	// Functionality================================================//
 
+	@Test(priority = 18)
+	public void validateForgotPasswordLinkStep1() throws InterruptedException {
+		
+		SoftAssert softAssert = new SoftAssert();
+		Thread.sleep(2000);
+		
+		loginpage.validateForgotPasswordLink();
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordTitle(), "Accordsign | Forgot Password");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordHeading(), "Forgot Password");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordText(), "Please enter your Email to reset the password");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordEmailLabel(), "Email ID");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordPlaceHolder(), "Enter Email ID");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordSubmitbtn(), "Submit");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordText1(), "Have a Password? Login");
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordText2(), "I agree to the Accordsign Terms and acknowledge how my data is used and protected as outlined in the Privacy Policy.");
+		
+		loginpage.validateForgotPasswordSubmit();
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordTosterMessage(), "Email address is required.");
+		
+		loginpage.validateForgotPasswordEmailTextBox("hshah@123.com");
+		
+		loginpage.validateForgotPasswordSubmit();
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordTosterMessage(), "We couldn’t find an account with that email ID.");
+		
+		loginpage.validateForgotPasswordEmailTextBox("hshah@123.");
+		
+		loginpage.validateForgotPasswordSubmit();
+		
+		softAssert.assertEquals(loginpage.validateForgotPasswordTosterMessage(), "That doesn’t look like a valid email.");
+		
+		loginpage.validateForgotPasswordEmailTextBox("hshah@perigeon.com");
+		
+		loginpage.validateForgotPasswordSubmit();
+		
+		
+		
+		
+		
+		softAssert.assertAll();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// @Test(priority=16)
 	public void validateForgotPasswordTest() throws InterruptedException {
 
 		loginpage.validateForgotPasswordLink(prop.getProperty("ForgotMail"));
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	@Test(priority=18)
+	public void validateValidLoginTest() throws InterruptedException {
+
+		homepage = loginpage.validateValidLogin(prop.getProperty("username"), prop.getProperty("password"));
+		Assert.assertEquals(homepage.validateHomePageTitle(),"Accordsign | Home","Not navigated to Home page!");
+
+	}
+	
+	
+	
 
 	@AfterMethod
 	public void tearDown() {
 
-		driver.quit();
+		//driver.quit();
 	}
 
 }

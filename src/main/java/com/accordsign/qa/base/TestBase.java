@@ -1,11 +1,19 @@
 package com.accordsign.qa.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,6 +27,8 @@ public class TestBase {
 	public static Properties prop;
 
 	public TestBase() {
+		
+		
 
 		try {
 			prop = new Properties();
@@ -36,6 +46,20 @@ public class TestBase {
 
 		}
 	}
+	
+	// Method to capture screenshot
+    public String takeScreenshot(String testName) {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String path = System.getProperty("user.dir") + "/screenshots/" + testName + "_" + timestamp + ".png";
+        try {
+            FileUtils.copyFile(srcFile, new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
+    }
+
 
 	public static void initialization() {
 
@@ -88,9 +112,24 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT);
+		
+		
 
-		driver.get(prop.getProperty("url"));
+		safeGet(prop.getProperty("url"), 3);
 
+	}
+	
+	public static void safeGet(String url, int retries) {
+	    for (int i = 0; i < retries; i++) {
+	        try {
+	            driver.get(url);
+	            return; // success
+	        } catch (TimeoutException e) {
+	            System.out.println("Timeout on attempt " + (i+1) + " → refreshing: " + url);
+	            driver.navigate().refresh();
+	        }
+	    }
+	    throw new RuntimeException("Page failed to load after " + retries + " attempts: " + url);
 	}
 
 }

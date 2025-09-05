@@ -2,6 +2,8 @@ package com.accordsign.qa.pages;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.BodyPart;
@@ -48,8 +50,6 @@ public class LoginPage extends TestBase {
 	@FindBy(xpath = "//input[@id='chkrememberme']")
 	WebElement CheckBox;
 
-	@FindBy(xpath = "//a[@id='forgotpassword']")
-	WebElement forgotpasswordlink;
 
 	@FindBy(xpath = "//a[@id='btnLogin']")
 	WebElement loginBtn;
@@ -62,27 +62,6 @@ public class LoginPage extends TestBase {
 
 	@FindBy(xpath = "//a[normalize-space()='Sign Up']")
 	WebElement signUpLink;
-
-	@FindBy(xpath = "//input[@id='AuthIdentity_EmailID']")
-	WebElement ForgotPasswordEmail;
-
-	@FindBy(xpath = "//a[@id='btnSubmit']")
-	WebElement ResetPasswordBtn;
-
-	@FindBy(xpath = "//input[@id='txtOTP1']")
-	WebElement EnterOTP;
-
-	@FindBy(xpath = "//a[@id='btnVerifyOTP']")
-	WebElement VerifyOTPBtn;
-
-	@FindBy(xpath = "//input[@id='Password']")
-	WebElement NewPasswordField;
-
-	@FindBy(xpath = "//input[@id='ConfirmPassword']")
-	WebElement ConfirmPasswordField;
-
-	@FindBy(xpath = "//a[@id='btnSubmit']")
-	WebElement UpdatePasswordBtn;
 	
 	@FindBy(id = "Password")
 	WebElement PasswordMasked;
@@ -127,6 +106,146 @@ public class LoginPage extends TestBase {
 
 	@FindBy(xpath = "//p[contains(text(),'Don’t have an account?')]")
 	WebElement LoginText2; //T&C 2
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	List<WebElement> LoginValidationTosterMessage;
+	
+	
+	
+	
+	
+	
+	
+	
+	// Forgot Password Link Flow Locators
+	
+	
+	@FindBy(xpath = "//a[@id='forgotpassword']")
+	WebElement Forgotpasswordlink;
+	
+	@FindBy(xpath = "//h3[normalize-space()='Forgot Password']")
+	WebElement ForgotpasswordHeading;
+	
+	@FindBy(xpath = "//h5[normalize-space()='Please enter your Email to reset the password']")
+	WebElement ForgotpasswordText;
+	
+	@FindBy(xpath = "//label[normalize-space()='Email ID']")
+	WebElement ForgotpasswordEmailLabel;
+	
+	@FindBy(xpath = "//input[@id='AuthIdentity_EmailID']")
+	WebElement ForgotPasswordEmail;
+	
+	@FindBy(xpath = "//a[@id='btnSubmit']")
+	WebElement ForgotPasswordSubmitBtn;
+	
+	@FindBy(xpath = "//div[3]//p[1]")
+	WebElement ForgotPasswordText1;
+	
+	@FindBy(xpath = "//p[contains(text(),'I agree to the')]")
+	WebElement ForgotPasswordText2;
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	WebElement ForgotPasswordValidationToster;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@FindBy(xpath = "//input[@id='txtOTP1']")
+	WebElement EnterOTP;
+	
+	@FindBy(xpath = "//a[@id='btnVerifyOTP']")
+	WebElement VerifyOTPBtn;
+	
+	@FindBy(xpath = "//input[@id='Password']")
+	WebElement NewPasswordField;
+
+	@FindBy(xpath = "//input[@id='ConfirmPassword']")
+	WebElement ConfirmPasswordField;
+	
+	@FindBy(xpath = "//a[@id='btnSubmit']")
+	WebElement UpdatePasswordBtn;
+	
+	
+	
+	
+	// Actions Related to Text On Forgot Password Page.
+	
+	public void validateForgotPasswordLink() {
+		
+		Forgotpasswordlink.click();
+		
+	}
+	
+	public String validateForgotPasswordTitle() {
+		
+		return driver.getTitle();
+	}
+	
+	public String validateForgotPasswordHeading() {
+		
+		return ForgotpasswordHeading.getText();
+	}
+	
+	public String validateForgotPasswordText() {
+		
+		return ForgotpasswordText.getText();
+	}
+	
+	public String validateForgotPasswordEmailLabel() {
+		
+		return ForgotpasswordEmailLabel.getText();
+	}
+	
+	public String validateForgotPasswordPlaceHolder() {
+		
+		return ForgotPasswordEmail.getAttribute("placeholder");
+	}
+	
+	public void validateForgotPasswordEmailTextBox(String email) {
+		ForgotPasswordEmail.clear();
+		ForgotPasswordEmail.sendKeys(email);
+	}
+	
+	
+	public String validateForgotPasswordSubmitbtn() {
+		
+		return ForgotPasswordSubmitBtn.getText();
+	}
+	
+	public void validateForgotPasswordSubmit() {
+		
+		ForgotPasswordSubmitBtn.click();
+	}
+	
+	public String validateForgotPasswordText1() {
+		
+		return ForgotPasswordText1.getText();
+	}
+	
+	public String validateForgotPasswordText2() {
+		
+		return ForgotPasswordText2.getText();
+	}
+	
+	public String validateForgotPasswordTosterMessage() throws InterruptedException {
+		Thread.sleep(5000);
+		return ForgotPasswordValidationToster.getText();
+		
+	}
+	
+	
+	
+	
+	
+	
 
 	// Actions Related to Text On Login Page.
 
@@ -136,60 +255,61 @@ public class LoginPage extends TestBase {
 	}
 
 	public String validateLoginPageHeading() {
+		return 	LoginText.getText();
 
-		String loginHeading = LoginText.getText();
-		return loginHeading;
 	}
 
 	public String validateEmailLabel() {
 
-		String emailLabel = EmailLabel.getText();
-		return emailLabel;
+		return EmailLabel.getText();
 
 	}
 
 	public String validatePasswordLabel() {
 
-		String passwordLabel = PasswordLabel.getText();
-		return passwordLabel;
+		return PasswordLabel.getText();
 
 	}
 
 	public String validateEmailPlaceHolder() {
 
-		String emailPlaceHolder = EmailPlaceHolder.getAttribute("placeholder");
-
-		return emailPlaceHolder;
+		return EmailPlaceHolder.getAttribute("placeholder");
 
 	}
 
 	public String validatePasswordPlaceHolder() {
 
-		String passwordPlaceHolder = PasswordPlaceHolder.getAttribute("placeholder");
-
-		return passwordPlaceHolder;
+		return PasswordPlaceHolder.getAttribute("placeholder");
 
 	}
 
+	public void validateEmailTextBox(String email) {
+		EmailPlaceHolder.clear();
+		 EmailPlaceHolder.sendKeys(email);
+
+	}
+
+	public void validatePasswordTextBox(String pwd) {
+		PasswordPlaceHolder.clear();
+		PasswordPlaceHolder.sendKeys(pwd);
+
+	}
 
 	public String validateLoginBtnText() {
 
-		String loginBtnText = LoginBtnText.getText();
-		return loginBtnText;
+		return LoginBtnText.getText();
 
 	}
 
 	public String validateSignUpText1() {
-
-		String signupText1 = LoginText1.getText();
-		return signupText1;
+ 
+		return LoginText1.getText();
 
 	}
 
 	public String validateSignUpText2() {
-
-		String signupText2 = LoginText2.getText();
-		return signupText2;
+ 
+		return LoginText2.getText();
 
 	}
 
@@ -218,6 +338,13 @@ public class LoginPage extends TestBase {
 		return SeedDataLogo.isDisplayed();
 
 	}
+	
+	public void validateLoginBtn() {
+		
+		loginBtn.click();
+	}
+	
+	
 
 	// Actions Related to Functionality On Login Page.
 	
@@ -285,9 +412,9 @@ public class LoginPage extends TestBase {
 
 	public void validateForgotPasswordLink(String fp) throws InterruptedException {
 
-		forgotpasswordlink.click();
+		Forgotpasswordlink.click();
 		ForgotPasswordEmail.sendKeys(fp);
-		ResetPasswordBtn.click();
+		ForgotPasswordSubmitBtn.click();
 
 		// Wait for OTP email to arrive
 		try {
@@ -307,6 +434,29 @@ public class LoginPage extends TestBase {
 		UpdatePasswordBtn.click();
 
 	}
+	
+	
+	
+	
+	// Validation messages check
+	
+	
+	public List<String> captureToastMessages() {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+	    // Wait until at least one toast message is visible
+	    wait.until(ExpectedConditions.visibilityOfAllElements(LoginValidationTosterMessage));
+
+	    List<String> toastTexts = new ArrayList<>();
+	    for (WebElement toast : LoginValidationTosterMessage) {
+	        toastTexts.add(toast.getText().trim());
+	    }
+	    return toastTexts;
+	}
+
+	
+	
+	
 
 	// Featch OTP Methods
 

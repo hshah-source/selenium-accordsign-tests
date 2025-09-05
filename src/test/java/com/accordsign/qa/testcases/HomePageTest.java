@@ -1,6 +1,7 @@
 package com.accordsign.qa.testcases;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -25,20 +26,22 @@ public class HomePageTest extends TestBase {
 
 		initialization();
 		loginpage = new LoginPage();
-		loginpage.validateValidLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homepage = loginpage.validateValidLogin(prop.getProperty("username"), prop.getProperty("password"));
 		
 	}
-	
 	
 	@Test
 	public void ValidateHomePageTitleTest() throws InterruptedException {
 		
 		String HomePageTitle = homepage.validateHomePageTitle();
-		System.out.println("HomePageTitle-"+HomePageTitle);
-		Assert.assertEquals(HomePageTitle,"Accordsign | Home Page", "Home Page Title is not matched");
+		Assert.assertEquals(HomePageTitle,"Accordsign | Home", "Home Page Title is not matched");
 		
 	}
 	
-	
+	@AfterMethod
+	public void tearDown() {
+
+		driver.quit();
+	}
 	
 }

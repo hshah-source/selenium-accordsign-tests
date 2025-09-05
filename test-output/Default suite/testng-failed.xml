@@ -5,7 +5,7 @@
     <classes>
       <class name="com.accordsign.qa.testcases.SignUpTest">
         <methods>
-          <include name="validateCountryCodeDropDownValue"/>
+          <include name="validateSignupOtpPageAllElement"/>
           <include name="SetUp"/>
           <include name="tearDown"/>
         </methods>

@@ -8,5 +8,4 @@ public class TestUtil {
 	public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(20);
 
 	
-
 }
