@@ -5,8 +5,8 @@
     <classes>
       <class name="com.accordsign.qa.testcases.SignUpTest">
         <methods>
-          <include name="validateSignupOtpPageAllElement"/>
           <include name="SetUp"/>
+          <include name="validateSignupPasswordPageAllElement"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.accordsign.qa.testcases.SignUpTest -->

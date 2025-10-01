@@ -1,7 +1,6 @@
 package com.accordsign.qa.pages;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -22,8 +21,8 @@ import org.jsoup.nodes.Element;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.accordsign.qa.base.TestBase;
 
@@ -165,7 +164,7 @@ public class SignUpPage extends TestBase {
 	@FindBy(xpath = "//h3[normalize-space()='Check Your Email']")
 	WebElement signupOTPHeadingText;
 	
-	@FindBy(xpath = "//h5[contains(text(),'We sent an OTP to')]")
+	@FindBy(xpath = "//h5[contains(text(),'We have sent an OTP to')]")
 	WebElement signupSentOTPText;
 	
 	@FindBy(xpath = "//span[@id='otp-email']")
@@ -300,20 +299,21 @@ public class SignUpPage extends TestBase {
 	
 	public String getTosterMessageText() throws InterruptedException {
 		
-		Thread.sleep(6000);
+		
 		CreatePasswordBtn.click();
-		return ValidationTosterMessage.getText();
+		String ValidationMsg = wait.until(ExpectedConditions.visibilityOf(ValidationTosterMessage)).getText();
+		return ValidationMsg;
 	}
 	
 	public void validateEnterPassword(String pwd) {
-		
+		wait.until(ExpectedConditions.visibilityOfAllElements(ValidationTosterMessage));
 		 SignupPasswordPlaceholderText.clear();
 		 SignupPasswordPlaceholderText.sendKeys(pwd);
 	}
 	
 	public void validateConfirmPassword(String cpwd) {
 		
-		
+		wait.until(ExpectedConditions.visibilityOfAllElements(ValidationTosterMessage));
 		SignupConfirmPasswordPlaceholderText.clear();
 		SignupConfirmPasswordPlaceholderText.sendKeys(cpwd);
 	}
@@ -363,9 +363,12 @@ public class SignUpPage extends TestBase {
 
 		public String getOTPValidationMessage() {
 			return signupOTPValidationToster.getText();
+			
 		}
 		
 		public void clickResendLink() {
+			wait.until(ExpectedConditions.elementToBeClickable(signupOTPResendLink));
+			wait.until(ExpectedConditions.visibilityOfAllElements(signupOTPValidationToster));
 			signupOTPResendLink.click();
 		}
 		
@@ -391,6 +394,7 @@ public class SignUpPage extends TestBase {
 		}
 	
 		public void enterInvalidOTP() {
+			wait.until(ExpectedConditions.visibilityOfAllElements(signupOTPValidationToster));
 			signupOTPField.sendKeys("123456");;
 		}
 	
@@ -541,7 +545,7 @@ public class SignUpPage extends TestBase {
 	
 	public String getSelectedRegionValue() throws InterruptedException {
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String regionValue = Region.getText();
 		return regionValue;
 		//System.out.println("regionValue = " + regionValue);
@@ -549,7 +553,7 @@ public class SignUpPage extends TestBase {
 	
 	public String getSelectedCountryCodeValue() throws InterruptedException {
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		String selectedCountry = SelectedCountryCodeValue.getAttribute("title");
 		//System.out.println("Selected Country = " + selectedCountry);
@@ -581,7 +585,6 @@ public class SignUpPage extends TestBase {
 	
 
 	public List<String> captureToastMessages() {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 	    // Wait until at least one toast message is visible
 	    wait.until(ExpectedConditions.visibilityOfAllElements(SignUpValidationMessageList));
@@ -630,9 +633,10 @@ public class SignUpPage extends TestBase {
 				}
 
 				String otp = fetchOtpFromGmail();
-				// System.out.println("OTP: " + otp);
+				 System.out.println("OTP: " + otp);
 
 				EnterOTP.sendKeys(otp);
+				wait.until(ExpectedConditions.elementToBeClickable(VerifyOTPBtn));
 				VerifyOTPBtn.click();
 		
 		
@@ -684,8 +688,9 @@ public class SignUpPage extends TestBase {
 	
 
 	public HomePage validateUserSignUp(String firstName, String lastName, String companyName, String email,
-			String contactNumber, String password) {
+			String contactNumber, String password) throws InterruptedException {
 
+		Thread.sleep(5000);
 		Contact_FirstName.sendKeys(firstName);
 		Contact_LastName.sendKeys(lastName);
 		Contact_CompanyName.sendKeys(companyName);
@@ -778,7 +783,8 @@ public class SignUpPage extends TestBase {
 					String otp = extractOTP(content);
 					if (otp != null) {
 						message.setFlag(Flags.Flag.SEEN, true); // Mark as read
-						inbox.close(false);
+						message.setFlag(Flags.Flag.DELETED, true); // Mark for deletion
+						inbox.close(true);
 						store.close();
 						return otp;
 					}

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +19,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.accordsign.qa.util.TestUtil;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 
 	public static WebDriver driver;
 	public static Properties prop;
+	public static WebDriverWait wait;
 
 	public TestBase() {
 		
@@ -95,6 +100,13 @@ public class TestBase {
 
 	    // Optional: Use incognito mode (fresh every time)
 	    options.addArguments("--incognito");
+	    
+	    
+	    // Control Version of Chrome in loacal machine 
+	    
+	    WebDriverManager.chromedriver().setup();
+	    
+	    
 		
 		if (browserName.equalsIgnoreCase("chrome")) {
 
@@ -108,11 +120,14 @@ public class TestBase {
 			driver = new FirefoxDriver();
 		}
 
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT);
 		
+		// 🔹 Global WebDriverWait
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
 
 		safeGet(prop.getProperty("url"), 3);

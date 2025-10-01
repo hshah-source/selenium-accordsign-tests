@@ -1,7 +1,6 @@
 package com.accordsign.qa.pages;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -24,7 +23,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.accordsign.qa.base.TestBase;
 
@@ -149,15 +147,6 @@ public class LoginPage extends TestBase {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@FindBy(xpath = "//input[@id='txtOTP1']")
 	WebElement EnterOTP;
 	
@@ -172,6 +161,278 @@ public class LoginPage extends TestBase {
 	
 	@FindBy(xpath = "//a[@id='btnSubmit']")
 	WebElement UpdatePasswordBtn;
+	
+	
+	
+	
+	//====================================OTP page Locators =========================================================//
+	
+	
+	@FindBy(xpath = "//h3[normalize-space()='Check your email']")
+	WebElement forgotPasswordOTPHeadingText;
+	
+	@FindBy(xpath = "//h5[contains(text(),'We have sent an OTP to')]")
+	WebElement forgotPasswordSentOTPText;
+	
+	@FindBy(xpath = "//span[@id='otp-email']")
+	WebElement forgotPasswordSentOTPEmail;
+	
+	@FindBy(xpath = "//h5[contains(text(),'Check your inbox & follow the instructions to get ')]")
+	WebElement forgotPasswordOTPInstructionText;
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	WebElement forgotPasswordOTPValidationToster;
+	// That OTP doesn’t look right. Please try again.
+	// Please enter the OTP.
+	
+	@FindBy(xpath = "//div[@class='toast toast-success']")
+	WebElement forgotPasswordOTPResendToster;
+	// OTP sent successfully!
+	
+	@FindBy(xpath = "//p[contains(text(),'Didn’t Receive OTP?')]")
+	WebElement forgotPasswordOTPResendText;
+	
+	@FindBy(xpath = "//a[@id='resendOTPConfirmationMail']")
+	WebElement forgotPasswordOTPResendLink;
+	
+	@FindBy(xpath = "//div[@class='form-group pt-4']//p[@class='default-color']")
+	WebElement forgotPasswordOTPLoginLink;
+	
+	@FindBy(xpath = "//input[@id='txtOTP1']")
+	WebElement forgotPasswordOTPField;
+	
+	
+	
+	//================================================================Forgot Password OTP Page ============================================//
+
+	
+	public String getOTPPageTitle() {
+		return driver.getTitle();
+	}
+
+	public String getOTPHeadingText() {
+		return forgotPasswordOTPHeadingText.getText();
+	}
+
+	public String getSentOTPMessage() {
+		return forgotPasswordSentOTPText.getText();
+	}
+
+	public String getSentOTPEmail() {
+		return forgotPasswordSentOTPEmail.getText().trim();
+	}
+
+	public String getOTPInstructionText() {
+		return forgotPasswordOTPInstructionText.getText();
+	}
+
+	public String getOTPValidationMessage() {
+		return forgotPasswordOTPValidationToster.getText();
+	}
+	
+	public void clickResendLink() {
+		forgotPasswordOTPResendLink.click();
+	}
+	
+	public String getOTPResendSuccessMessage() {
+		
+		return forgotPasswordOTPResendToster.getText();
+	}
+
+	public String isResendTextDisplayed() {
+		return forgotPasswordOTPResendText.getText();
+	}
+
+	public String isLoginLinkDisplayed() {
+		return forgotPasswordOTPLoginLink.getText();
+	}
+
+	public void clickLoginLink() {
+		forgotPasswordOTPLoginLink.click();
+	}
+
+	public void validateSubmitOTPBtn() {
+		VerifyOTPBtn.click();
+	}
+
+	public void enterInvalidOTP() {
+		forgotPasswordOTPField.sendKeys("123456");;
+	}
+
+	
+	
+	//=================================Set Password form Signup Locators ============================================//
+	
+	
+	
+	
+	@FindBy(xpath = "//h3[normalize-space()='Set a New Password']")
+	WebElement ForgotPasswordHeadingText;
+	
+	@FindBy(xpath = "//label[normalize-space()='Password']")
+	WebElement ForgotPasswordlabelText;
+	
+	@FindBy(xpath = "//input[@id='Password']")
+	WebElement ForgotPasswordPlaceholderText;
+	
+	@FindBy(xpath = "//label[normalize-space()='Confirm Password']")
+	WebElement ForgotConfirmPasswordlabelText;
+	
+	@FindBy(xpath = "//input[@id='ConfirmPassword']")
+	WebElement ForgotConfirmPasswordPlaceholderText;
+	
+	@FindBy(xpath = "//div[@class='login-right-inner']//p[contains(text(),'Password Strength:')]")
+	WebElement ForgotPasswordProgressText;
+	
+	@FindBy(xpath = "//a[@id='btnSubmit']")
+	WebElement CreatePasswordBtn;
+	
+	@FindBy(xpath = "//div[@class='toast-message']")
+	WebElement ValidationTosterMessage;
+	
+	@FindBy(xpath = "//span[@class='low-upper-case']")
+	WebElement PasswordStrengthText1;
+	
+	@FindBy(xpath = "//span[@class='one-number']")
+	WebElement PasswordStrengthText2;
+	
+	@FindBy(xpath = "//span[@class='one-special-char']")
+	WebElement PasswordStrengthText3;
+	
+	@FindBy(xpath = "//span[@class='eight-character']")
+	WebElement PasswordStrengthText4;
+	
+	
+	public String getPasswordPageTitle() {
+		return driver.getTitle();
+	}
+
+	public String getPasswordHeadingText() {
+		return ForgotPasswordHeadingText.getText();
+	}
+	
+	public String getPasswordlabelText() {
+		return ForgotPasswordlabelText.getText();
+	}
+	
+	public String getPasswordPlaceholderText() {
+		return ForgotPasswordPlaceholderText.getAttribute("placeholder");
+	}
+	
+	public String getConfirmPasswordlabelText() {
+		return ForgotConfirmPasswordlabelText.getText();
+	}
+	
+	public String getConfirmPasswordPlaceholderText() {
+		return ForgotConfirmPasswordPlaceholderText.getAttribute("placeholder");
+	}
+	
+	public String getPasswordProgressText() {
+		return ForgotPasswordProgressText.getText().split("Very")[0].trim();
+	}
+	
+	public String getPasswordStrengthText1() {
+		return PasswordStrengthText1.getText();
+	}
+	
+	public String getPasswordStrengthText2() {
+		return PasswordStrengthText2.getText();
+	}
+	
+	public String getPasswordStrengthText3() {
+		return PasswordStrengthText3.getText();
+	}
+	
+	public String getPasswordStrengthText4() {
+		return PasswordStrengthText4.getText();
+	}
+	
+	
+	public String getPasswordStrengthText1Style() {
+		return PasswordStrengthText1.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText2Style() {
+		return PasswordStrengthText2.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText3Style() {
+		return PasswordStrengthText3.getCssValue("color");
+	}
+	
+	public String getPasswordStrengthText4Style() {
+		return PasswordStrengthText4.getCssValue("color");
+	}
+	
+	
+	public String getTosterMessageText() throws InterruptedException {
+		
+		
+		CreatePasswordBtn.click();
+		String validationmsg = ValidationTosterMessage.getText();
+		Thread.sleep(6000);
+		return validationmsg;
+	}
+	
+	public void validateEnterPassword(String pwd) {
+		
+		ForgotPasswordPlaceholderText.clear();
+		ForgotPasswordPlaceholderText.sendKeys(pwd);
+	}
+	
+	public void validateConfirmPassword(String cpwd) {
+		
+		
+		ForgotConfirmPasswordPlaceholderText.clear();
+		ForgotConfirmPasswordPlaceholderText.sendKeys(cpwd);
+	}
+	
+	
+	public String getPasswordProgressStatus() {
+		return ForgotPasswordProgressText.getText().split(":", 2)[1].trim();
+	}
+	
+	
+	public void validateSetPasswordPageDetails(String email) {
+		
+		Forgotpasswordlink.click();
+		ForgotPasswordEmail.sendKeys(email);
+		ForgotPasswordSubmitBtn.click();
+
+		// Wait for OTP email to arrive
+		try {
+			Thread.sleep(10000); // wait 10 seconds (can increase if needed)
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		String otp = fetchOtpFromGmail();
+		System.out.println("OTP: " + otp);
+
+		EnterOTP.sendKeys(otp);
+		VerifyOTPBtn.click();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
 	
 	
 	
@@ -241,9 +502,12 @@ public class LoginPage extends TestBase {
 		
 	}
 	
+
 	
 	
 	
+	
+
 	
 	
 
@@ -345,12 +609,17 @@ public class LoginPage extends TestBase {
 	}
 	
 	
+	public String validateForgotPasswordLinkText() {
+		
+		return Forgotpasswordlink.getText();
+	}
+	
+	
 
 	// Actions Related to Functionality On Login Page.
 	
 	public SignUpPage validateSignUpLink() {
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    wait.until(ExpectedConditions.elementToBeClickable(signUpLink));
 	    signUpLink.click();
 	    return new SignUpPage();
@@ -363,7 +632,6 @@ public class LoginPage extends TestBase {
 		accordsignTermsLink.click();
 
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			// Wait for URL to change
 			return wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(initialUrl)));
 		} catch (TimeoutException e) {
@@ -379,7 +647,6 @@ public class LoginPage extends TestBase {
 		PrivacyPolicyLink.click();
 
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 			// Wait for URL to change
 			return wait.until(ExpectedConditions.not(ExpectedConditions.urlToBe(initialUrl)));
 		} catch (TimeoutException e) {
@@ -412,6 +679,7 @@ public class LoginPage extends TestBase {
 
 	public void validateForgotPasswordLink(String fp) throws InterruptedException {
 
+		
 		Forgotpasswordlink.click();
 		ForgotPasswordEmail.sendKeys(fp);
 		ForgotPasswordSubmitBtn.click();
@@ -427,7 +695,13 @@ public class LoginPage extends TestBase {
 		System.out.println("OTP: " + otp);
 
 		EnterOTP.sendKeys(otp);
+		
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(VerifyOTPBtn));
 		VerifyOTPBtn.click();
+		
+		Thread.sleep(2000);
+		
 		NewPasswordField.sendKeys("Harsh@123");
 		ConfirmPasswordField.sendKeys("Harsh@123");
 		Thread.sleep(2000);
@@ -442,7 +716,6 @@ public class LoginPage extends TestBase {
 	
 	
 	public List<String> captureToastMessages() {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 	    // Wait until at least one toast message is visible
 	    wait.until(ExpectedConditions.visibilityOfAllElements(LoginValidationTosterMessage));
@@ -495,7 +768,8 @@ public class LoginPage extends TestBase {
 					String otp = extractOTP(content);
 					if (otp != null) {
 						message.setFlag(Flags.Flag.SEEN, true); // Mark as read
-						inbox.close(false);
+						message.setFlag(Flags.Flag.DELETED, true); // Mark for deletion
+						inbox.close(true);
 						store.close();
 						return otp;
 					}
