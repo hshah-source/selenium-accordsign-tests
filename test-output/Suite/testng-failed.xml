@@ -6,49 +6,14 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.accordsign.qa.testcases.LoginPageTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="validateForgotPasswordLinkOTPPageAllElement"/>
-          <include name="validatePrivacyPolicyLinkTest"/>
-          <include name="validateAccordSignTermsLinkTest"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.accordsign.qa.testcases.LoginPageTest -->
-      <class name="com.accordsign.qa.testcases.HomePageTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="ValidateSettingMenuStatusInActive"/>
-          <include name="ValidateSettingProfileLinkSelected"/>
-          <include name="ValidateGetStartedPopup"/>
-          <include name="setUp"/>
-          <include name="verifySettingsMenuItemsTest"/>
-        </methods>
-      </class> <!-- com.accordsign.qa.testcases.HomePageTest -->
       <class name="com.accordsign.qa.testcases.SignUpTest">
         <methods>
-          <include name="validateSignupOtpPageAllElement"/>
           <include name="SetUp"/>
+          <include name="validateSignupPasswordPageAllElement"/>
+          <include name="validateUserSignUpTest"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.accordsign.qa.testcases.SignUpTest -->
-      <class name="com.accordsign.qa.testcases.ProfilePageTest">
-        <methods>
-          <include name="ValidateAllLabelPlaceholderProfilePage"/>
-          <include name="ValidateAllElementDeletePopup"/>
-          <include name="ValidateHomePageTitleTest"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="ValidateImageUploadAndRemoveOnProfile"/>
-        </methods>
-      </class> <!-- com.accordsign.qa.testcases.ProfilePageTest -->
-      <class name="com.accordsign.qa.testcases.MySignaturesPageTest">
-        <methods>
-          <include name="validateSignaturePageElementTest"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.accordsign.qa.testcases.MySignaturesPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

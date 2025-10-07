@@ -7,8 +7,8 @@
   <test name="Test">
     <classes>
      <class name="com.accordsign.qa.testcases.SignUpTest"/>
-  	<!-- <class name="com.accordsign.qa.testcases.LoginPageTest"/>
-      <class name="com.accordsign.qa.testcases.HomePageTest"/>
+  	<class name="com.accordsign.qa.testcases.LoginPageTest"/>
+      <!-- <class name="com.accordsign.qa.testcases.HomePageTest"/>
       <class name="com.accordsign.qa.testcases.ProfilePageTest"/> 
       <class name="com.accordsign.qa.testcases.MySignaturesPageTest"/>-->
     </classes>

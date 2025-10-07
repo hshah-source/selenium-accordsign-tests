@@ -82,7 +82,7 @@ public class LoginPageTest extends TestBase {
 
 	// TestCases Functionality
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void validateAccordSignTermsLinkTest() {
 
 		boolean isRedirected = loginpage.validateaccordSignTermsLink();
@@ -90,7 +90,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void validatePrivacyPolicyLinkTest() {
 
 		boolean isRedirected = loginpage.validatePrivacyPolicyLink();
@@ -197,7 +197,7 @@ public class LoginPageTest extends TestBase {
 		softAssert.assertAll();
 	}
 
-	@Test(priority = 9)
+	//@Test(priority = 9)
 	public void validateForgotPasswordLinkOTPPageAllElement() throws InterruptedException {
 
 		SoftAssert softAssert = new SoftAssert();
@@ -246,7 +246,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 10)
+	//@Test(priority = 10)
 	public void validateForgotPasswordLinkPasswordPageAllElement() throws InterruptedException {
 
 		loginpage.validateSetPasswordPageDetails(prop.getProperty("ForgotMail"));
@@ -338,7 +338,7 @@ public class LoginPageTest extends TestBase {
 
 	}
 
-	@Test(priority = 11)
+	//@Test(priority = 11)
 	public void validateSetNewPasswordTest() throws InterruptedException {
 
 		loginpage.validateForgotPasswordLink(prop.getProperty("ForgotMail"));

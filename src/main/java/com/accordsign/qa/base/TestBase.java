@@ -108,8 +108,6 @@ public class TestBase {
 	    WebDriverManager.chromedriver().clearDriverCache().clearResolutionCache().setup();
 
 	    
-	    
-		
 		if (browserName.equalsIgnoreCase("chrome")) {
 
 			

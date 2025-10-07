@@ -301,7 +301,8 @@ public class SignUpPage extends TestBase {
 		
 		
 		CreatePasswordBtn.click();
-		String ValidationMsg = wait.until(ExpectedConditions.visibilityOf(ValidationTosterMessage)).getText();
+		String ValidationMsg = ValidationTosterMessage.getText();
+		wait.until(ExpectedConditions.visibilityOf(ValidationTosterMessage));
 		return ValidationMsg;
 	}
 	
@@ -751,7 +752,7 @@ public class SignUpPage extends TestBase {
 	public String fetchOtpFromGmail() {
 		String host = "imap.gmail.com";
 		String username = "hshah@perigeon.com"; // Replace with your Gmail
-		String password = "clay rycx jhgn mard"; // Replace with your App Password
+		String password = "chfy zjnp wuxs ihpu"; // Replace with your App Password
 
 		try {
 			Properties properties = new Properties();
