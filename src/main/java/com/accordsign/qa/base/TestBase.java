@@ -104,7 +104,9 @@ public class TestBase {
 	    
 	    // Control Version of Chrome in loacal machine 
 	    
-	    WebDriverManager.chromedriver().setup();
+	    //WebDriverManager.chromedriver().setup();
+	    WebDriverManager.chromedriver().clearDriverCache().clearResolutionCache().setup();
+
 	    
 	    
 		
